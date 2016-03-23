@@ -1,37 +1,49 @@
 <html ng-app="app">
+
 <head>
     <meta charset="UTF-8">
     <title>Exit-Interview</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body ng-controller="interviewController as iC">
-     <form ng-submit="PoiPtnAdd()">
-       <div class="form-group">
-           <label>Author</label>
-           <input type="text"ng-model="painting.author" class="form-control" placeholder="Oh author my author!">
-       </div>
-       <div class="form-group">
-           <label>Book Image Url: </label>
-           <input type="url" ng-model="painting.url" class="form-control" placeholder="Place the image here! :)">
-       </div>
-       <div class="form-group">
-           <label>Painting Title</label>
-           <input type="text" ng-model="painting.title" class="form-control" placeholder="Title... aka Blizzard bee mcgee!">
-       </div>
-       <button type="submit">Push this! YEEHAW!</button>
-       
-   </form>
-   <div>
-        {{painting.author}}
-        <img ng-src="{{painting.url}}" alt="{{painting.title}}">
-        {{painting.title}}
-   </div>
-   <div ng-repeat= "painting in paintings track by $index">
-         {{painting.author}}
-         <img ng-src="{{painting.url}}" alt="{{painting.title}}">
-         {{painting.title}}
-   </div>
-        
+    <div class="row">
+        <div class="col-md-6">
+            <form ng-submit="PoiPtnAdd()">
+                <div class="form-group">
+                    <label>Author</label>
+                    <input type="text" ng-model="painting.author" class="form-control" placeholder="Oh author my author!">
+                </div>
+                <div class="form-group">
+                    <label>Book Image Url: </label>
+                    <input type="url" ng-model="painting.url" class="form-control" placeholder="Place the image here! :)">
+                </div>
+                <div class="form-group">
+                    <label>Painting Title</label>
+                    <input type="text" ng-model="painting.title" class="form-control" placeholder="Title... aka Blizzard bee mcgee!">
+                </div>
+                <button type="submit">Push this! YEEHAW!</button>
+
+            </form>
+        </div>
+
+        <div class="col-md-4 col-md-offset-1">
+            {{painting.author}}
+            <img ng-src="{{painting.url}}" alt="{{painting.title}}" class="img-thumbnail" ng-show="painting.url"> {{painting.title}}
+        </div>
+
+    </div>
+    <div>
+        <div ng-repeat="painting in paintings track by $index" class="col-md-2">
+
+            {{painting.author}}
+            <img ng-src="{{painting.url}}" alt="{{painting.title}}" class="img-thumbnail"> {{painting.title}}
+        </div>
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
     <script src="app.js"></script>
 </body>
+
 </html>

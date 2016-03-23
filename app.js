@@ -5,5 +5,6 @@ app.controller('interviewController', function($scope){
     $scope.PoiPtnAdd = function(){
         $scope.paintings.push($scope.painting);
         $scope.painting = {}
+        $scope.painting.url = ''
     }
 })
