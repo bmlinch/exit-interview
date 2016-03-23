@@ -4,19 +4,32 @@
     <title>Exit-Interview</title>
 </head>
 <body ng-controller="interviewController as iC">
-     <input type="text" placeholder="Input the Author" ng-model="painting.author">
-     <input type="url" placeholder="Image Url" ng-model="painting.url">
-     <input type="text" placeholder="Title of the Image!" ng-model="painting.title">
-     <button ng-click="addingFn(painting.author, painting.url, painting.title)">Add to the list!</button>
-     {{painting.author}}
-     {{painting.url}}
-     {{painting.title}}
-     
-     <div ng-repeat= "painting in paintings track by $index">
+     <form ng-submit="PoiPtnAdd()">
+       <div class="form-group">
+           <label>Author</label>
+           <input type="text"ng-model="painting.author" class="form-control" placeholder="Oh author my author!">
+       </div>
+       <div class="form-group">
+           <label>Book Image Url: </label>
+           <input type="url" ng-model="painting.url" class="form-control" placeholder="Place the image here! :)">
+       </div>
+       <div class="form-group">
+           <label>Painting Title</label>
+           <input type="text" ng-model="painting.title" class="form-control" placeholder="Title... aka Blizzard bee mcgee!">
+       </div>
+       <button type="submit">Push this! YEEHAW!</button>
+       
+   </form>
+   <div>
+        {{painting.author}}
+        <img ng-src="{{painting.url}}" alt="{{painting.title}}">
+        {{painting.title}}
+   </div>
+   <div ng-repeat= "painting in paintings track by $index">
          {{painting.author}}
-         {{painting.url}}
+         <img ng-src="{{painting.url}}" alt="{{painting.title}}">
          {{painting.title}}
-     </div>
+   </div>
         
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
     <script src="app.js"></script>
